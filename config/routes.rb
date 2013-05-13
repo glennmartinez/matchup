@@ -1,8 +1,13 @@
 Matchup::Application.routes.draw do
-  resources :matches
+  
+  resources :matches do
+    resources :teams
+  end
 
-
-  resources :teams
+  resources :teams do
+    # resources :matches
+    get :autocomplete_team_name, :on => :collection
+  end
 
 
   # The priority is based upon order of creation:

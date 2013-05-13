@@ -1,6 +1,9 @@
 class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
+
+  before_filter :get_teams
+
   def index
     @matches = Match.all
 
@@ -24,12 +27,10 @@ class MatchesController < ApplicationController
   # GET /matches/new
   # GET /matches/new.json
   def new
-    @match = Match.new
+     @match = Match.new
+     @match.teams.build
+    # @match.teams.build
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @match }
-    end
   end
 
   # GET /matches/1/edit
@@ -40,8 +41,11 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.json
   def create
+    @team = Team.find(params[:team_id])
     @match = Match.new(params[:match])
+    
 
+    
     respond_to do |format|
       if @match.save
         format.html { redirect_to @match, notice: 'Match was successfully created.' }
@@ -79,5 +83,10 @@ class MatchesController < ApplicationController
       format.html { redirect_to matches_url }
       format.json { head :no_content }
     end
+  end
+
+  def get_teams
+    @teams = Team.all
+    
   end
 end

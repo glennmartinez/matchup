@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  autocomplete :team, :name, :full => true
   # GET /teams
   # GET /teams.json
   def index
@@ -40,7 +41,8 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    @team = Team.new(params[:team])
+    #@team = Team.new(params[:team])
+    @team = @match.teams.build(params[:team])
 
     respond_to do |format|
       if @team.save
@@ -57,7 +59,8 @@ class TeamsController < ApplicationController
   # PUT /teams/1.json
   def update
     @team = Team.find(params[:id])
-
+    @match = Match.find(params[:match_id])
+    
     respond_to do |format|
       if @team.update_attributes(params[:team])
         format.html { redirect_to @team, notice: 'Team was successfully updated.' }

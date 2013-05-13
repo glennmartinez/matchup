@@ -8,6 +8,13 @@ gem 'rails', '3.2.9'
 gem 'sqlite3'
 gem 'therubyracer'
 gem 'execjs'
+gem 'rails3-jquery-autocomplete'
+gem "jquery-ui-rails", "~> 2.0.0"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'nested_form'
+gem 'jquery_datepicker'
+
+
 
 
 # Gems used only for assets and not required
@@ -15,6 +22,8 @@ gem 'execjs'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'jquery_datepicker'
+
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
