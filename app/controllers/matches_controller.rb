@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
 
-  # before_filter :get_team
+   # before_filter :getTeams 
 
   def index
     @matches = Match.all
@@ -89,4 +89,6 @@ class MatchesController < ApplicationController
     @teams = Team.find(params[:team_id])
     
   end
+
+
 end

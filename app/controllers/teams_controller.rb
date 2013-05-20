@@ -95,12 +95,19 @@ class TeamsController < ApplicationController
 
     @match = Match.find(params[:match_id])
     
-    # @team = Team.find(params[:match][:teams_attributes][:id])  
-    params[:match][:teams_attributes].each do |teamats|
-      team = Team.find(teamats['id'])
-      @match.teams << team
-      team.matches << @match
-    end
+
+    teamslist = params["match"]["teams_attributes"]
+    
+    teamslist.each_value.map do |tl|
+    
+      @team = Team.find(tl["id"])
+      @match.teams << @team
+      @team.matches << @match
+    
+
+    end 
+
+
 
 
     

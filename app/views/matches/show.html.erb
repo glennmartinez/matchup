@@ -1,3 +1,5 @@
+
+<h1>Match</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -10,8 +12,16 @@
   <%= @match.date %>
 </p>
 
+<div>
+<h2>Teams:</h2>
+
+<% @match.teams.each do |teams| %>
+	<%= teams.name  %>
+
+<% end %>
+</div>
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Add Team', add_team_match_path(@match) %>
+<%= link_to 'Team Management', add_team_match_path(@match) %>
 <%= link_to 'Back', matches_path %>
 
