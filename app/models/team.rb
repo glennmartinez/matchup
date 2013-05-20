@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  attr_accessible :description, :name, :status
+  attr_accessible :id, :description, :name, :status
 
   attr_protected :id
 

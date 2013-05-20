@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
 
-  before_filter :get_teams
+  # before_filter :get_team
 
   def index
     @matches = Match.all
@@ -41,7 +41,7 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.json
   def create
-    @team = Team.find(params[:team_id])
+    # @team = Team.find(params[:team_id])
     @match = Match.new(params[:match])
     
 
@@ -85,8 +85,8 @@ class MatchesController < ApplicationController
     end
   end
 
-  def get_teams
-    @teams = Team.all
+  def get_team
+    @teams = Team.find(params[:team_id])
     
   end
 end

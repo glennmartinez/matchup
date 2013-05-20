@@ -41,8 +41,8 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    #@team = Team.new(params[:team])
-    @team = @match.teams.build(params[:team])
+    @team = Team.new(params[:team])
+
 
     respond_to do |format|
       if @team.save
@@ -82,5 +82,34 @@ class TeamsController < ApplicationController
       format.html { redirect_to teams_url }
       format.json { head :no_content }
     end
+  end
+
+  def add_team_to_match
+    @match = Match.find(params[:match_id])
+    @match.teams.build
+   
+    
+  end
+
+  def add_team_to_match_post
+
+    @match = Match.find(params[:match_id])
+    
+    # @team = Team.find(params[:match][:teams_attributes][:id])  
+    params[:match][:teams_attributes].each do |teamats|
+      team = Team.find(teamats['id'])
+      @match.teams << team
+      team.matches << @match
+    end
+
+
+    
+    # @team = Team.find(params[:team_id])
+    # @match.teams << @team
+    # @team.matches << @match
+
+
+    redirect_to @match
+    
   end
 end

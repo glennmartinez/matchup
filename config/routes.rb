@@ -2,13 +2,19 @@ Matchup::Application.routes.draw do
   
   resources :matches do
     resources :teams
+    resources :team
   end
 
+  resources :team 
+
   resources :teams do
-    # resources :matches
+     resources :matches
     get :autocomplete_team_name, :on => :collection
   end
 
+    get "/matches/:match_id/add_team_to_match" => "teams#add_team_to_match", :as => :add_team_match
+
+    put "/matches/:match_id/add_team_to_match_post" => "teams#add_team_to_match_post", :as => :add_team_to_match_post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

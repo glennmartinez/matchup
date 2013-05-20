@@ -20,15 +20,7 @@
     <%= f.date_select :date %>
   </div>
 
-  <%= f.fields_for :teams, :html => { :class => 'form-vertical' } do |builder| %>
-  <%= builder.label "Team Name:" %>
-    <%= builder.autocomplete_field :name, autocomplete_team_name_teams_path, :update_elements => {:id => "##{form_tag_id(builder.object_name, :id)}" },:class => "input-small",:placeholder => "Search" %>
-  <%= builder.hidden_field :id %>
-  
-  <% end %>
-
-  <%= f.link_to_add raw('<i class="icon-plus-sign"></i>'), :teams, :class => 'btn btn-small btn-primary' %>
-  </div>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>
