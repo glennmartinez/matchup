@@ -5,7 +5,6 @@ Matchup::Application.routes.draw do
     resources :team
   end
 
-  resources :team 
 
   resources :teams do
      resources :matches

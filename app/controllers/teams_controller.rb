@@ -86,7 +86,7 @@ class TeamsController < ApplicationController
 
   def add_team_to_match
     @match = Match.find(params[:match_id])
-    @match.teams.build
+    2.times { @match.teams.build }
    
     
   end

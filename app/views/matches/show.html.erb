@@ -15,8 +15,8 @@
 <div>
 <h2>Teams:</h2>
 
-<% @match.teams.each do |teams| %>
-	<%= teams.name  %>
+<% @match.teams.each do |team| %>
+	<%= link_to team.name, team  %>
 
 <% end %>
 </div>
