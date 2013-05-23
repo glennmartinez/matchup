@@ -1,5 +1,8 @@
 Matchup::Application.routes.draw do
   
+  
+  devise_for :users
+
   resources :matches do
     resources :teams
   end

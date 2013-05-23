@@ -13,6 +13,8 @@ gem "jquery-ui-rails", "~> 2.0.0"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'nested_form'
 gem 'jquery_datepicker'
+gem 'devise' 
+gem 'omniauth-steam'
 
 
 
