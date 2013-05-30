@@ -156,6 +156,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 2.0.0)
   jquery_datepicker
   nested_form
+  omniauth-openid
   omniauth-steam
   rails (= 3.2.9)
   rails3-jquery-autocomplete

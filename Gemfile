@@ -14,8 +14,8 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'nested_form'
 gem 'jquery_datepicker'
 gem 'devise' 
+gem 'omniauth-openid'
 gem 'omniauth-steam'
-
 
 
 

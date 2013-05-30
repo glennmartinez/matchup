@@ -1,3 +1,7 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :steam, ENV['3FC9B0C0C1CC76DB65F376B1BF3A900B']
+  provider :steam, '3C1F2FE2CA6586FC85DB148DF99C1245'
+
 end
+
+require "openid/fetchers"
+OpenID.fetcher.ca_file = "etc/ssl/certs/ca-certificates.crt"
