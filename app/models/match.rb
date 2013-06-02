@@ -1,5 +1,5 @@
 class Match < ActiveRecord::Base
-  attr_accessible :date, :name
+  attr_accessible :date, :name, :hometeamid, :hometeamname , :awayteamid, :awayteamname
 
   attr_protected :id
   

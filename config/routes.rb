@@ -1,7 +1,16 @@
 Matchup::Application.routes.draw do
   
+  
+  resources :authentications
+
+
+  match '/auth/steam/callback' => 'authentications#create'
+
+  devise_for :users
+
   resources :matches do
     resources :teams
+    resources :matchships
   end
 
   resources :teams do

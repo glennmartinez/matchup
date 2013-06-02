@@ -28,7 +28,6 @@ class MatchesController < ApplicationController
   # GET /matches/new.json
   def new
      @match = Match.new
-     @match.teams.build
     # @match.teams.build
 
   end
@@ -41,9 +40,18 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.json
   def create
-    @team = Team.find(params[:team_id])
+    # @team = Team.find(params[:team_id])
     @match = Match.new(params[:match])
+
+    @team1 = Team.find(params[:match][:hometeamid])
+
+    @team2 = Team.find(params[:match][:awayteamid])
     
+    @match.teams << @team1
+    @match.teams << @team2
+
+    # @team1.matches << @match
+    # @team2.matches << @match
 
     
     respond_to do |format|
