@@ -19,8 +19,18 @@
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
+    <div class="field">
+    <%= f.label :hometeamname %><br />
+    <%= f.autocomplete_field :hometeamname, autocomplete_team_name_teams_path, :update_elements => {:id => "##{form_tag_id(f.object_name, :hometeamid)}" },:class => "input-small",:placeholder => "Search..."%>
+      <%= f.hidden_field :hometeamid %>
+  </div>
+    <div class="field">
+    <%= f.label :awayteamname %><br />
+        <%= f.autocomplete_field :awayteamname, autocomplete_team_name_teams_path, :update_elements => {:id => "##{form_tag_id(f.object_name, :awayteamid)}" },:class => "input-small",:placeholder => "Search..."%>
+      <%= f.hidden_field :awayteamid %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+<% end %> 

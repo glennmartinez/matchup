@@ -42,7 +42,16 @@ class MatchesController < ApplicationController
   def create
     # @team = Team.find(params[:team_id])
     @match = Match.new(params[:match])
+
+    @team1 = Team.find(params[:match][:hometeamid])
+
+    @team2 = Team.find(params[:match][:awayteamid])
     
+    @match.teams << @team1
+    @match.teams << @team2
+
+    # @team1.matches << @match
+    # @team2.matches << @match
 
     
     respond_to do |format|
