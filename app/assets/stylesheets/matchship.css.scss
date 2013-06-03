@@ -1,3 +1,84 @@
 // Place all the styles related to the matchship controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.sidebar-nav-fixed {
+    position:fixed;
+    top:60px;
+    width:3.97%;
+}
+
+@media (max-width: 767px) {
+    .sidebar-nav-fixed {
+        position:static;
+        width:auto;
+    }
+}
+
+@media (max-width: 979px) {
+    .sidebar-nav-fixed {
+        top:70px;
+    }
+}
+
+.active {
+	
+	padding: 8px 5px 35px 5px;
+}
+
+
+.nav-list > .active > a,
+.nav-list > .active > a:hover {
+  color: #333;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  background-color: whiteSmoke;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+  .row-fluid .span2 {
+    width: 8.529915%;
+    *width: 14.4767230406383%;
+   }
+
+  .formie {
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  }
+
+
+.hero-unit {
+  
+  padding: 30px;
+}
+
+.input-mini {
+  width: 35px;
+}
+ 
+.input-small {
+  width: 55px;
+}
+ 
+.strong {
+  
+  font-weight:bold;
+}
+
+.btn-inverse {
+  
+
+}
+
+ 
+.headerlogin {
+  
+  float: right;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+}
