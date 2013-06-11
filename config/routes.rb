@@ -2,7 +2,7 @@ Matchup::Application.routes.draw do
   
   
   resources :authentications
-
+  resources :dashboard
 
   match '/auth/steam/callback' => 'authentications#create'
 
