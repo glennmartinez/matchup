@@ -1,0 +1,36 @@
+<%= nested_form_for @tournament do |f| %>
+  <% if @tournament.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
+
+      <ul>
+      <% @tournament.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+  <%= f.fields_for :teams, :html => { :class => 'form-vertical' } do |builder| %>
+    <%= builder.autocomplete_field :name, autocomplete_team_name_teams_path, :update_elements => {:id => "##{form_tag_id(f.object_name, :id)}" },:class => "input-small",:placeholder => "Search..."%>
+    <%= builder.hidden_field :id %>
+
+    <%= builder.link_to_remove raw('<i class="icon-trash"></i>'),:class => 'btn btn-small btn-danger'   %>
+  <% end %>
+  <%= f.link_to_add raw('<i class="icon-plus-sign"></i>'), :teams, :class => 'btn btn-small btn-primary' %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

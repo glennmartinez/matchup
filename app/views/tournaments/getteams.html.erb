@@ -1,0 +1,12 @@
+
+
+<h4>Tournament</h4>
+
+<p>Add Teams</p>
+
+<% @teams.each do |team| %>
+
+<%= link_to team.name, tournament_addteam_path(@tournament, team) %>
+
+
+<% end %>

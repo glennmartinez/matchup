@@ -1,11 +1,20 @@
 Matchup::Application.routes.draw do
   
   
+  resources :tournaments
+
+  resources :tournament 
+
+  resources :tournamentships
   resources :authentications
   resources :dashboard
 
   match '/auth/steam/callback' => 'authentications#create'
 
+  get '/tournaments/:tournament_id/getteams' => 'tournaments#getteams', :as => :tournament_getteams
+
+  get '/tournaments/:tournament_id/addteam/:team_id' => 'tournaments#addteam', :as => :tournament_addteam
+  
   devise_for :users
 
   resources :matches do
