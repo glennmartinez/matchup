@@ -15,6 +15,8 @@ class TournamentsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:id])
 
+    @teams = @tournament.teams 
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tournament }
@@ -94,7 +96,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:tournament_id])
 
      @tournament.teams << @team 
-     @team.tournaments << @tournament
+     
 
     redirect_to @tournament, notice: 'Team was added to your Tournament'
 

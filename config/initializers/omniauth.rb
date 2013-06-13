@@ -1,5 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :steam, '3C1F2FE2CA6586FC85DB148DF99C1245'
+  provider :steam, '45C1032773C0E6132C9B5D2C8C1D4FD9'
 
 # C08081F087208735DDA6C0D57679BF60
 end

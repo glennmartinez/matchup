@@ -11,6 +11,17 @@
 </p>
 
 
+<div>
+	<h4>Teams Signed Up</h4>
+ <% @teams.each do |team| %>
+ <div>
+ 		<%= team.name %>
+ 		<%= team.description %>	
+ </div>
+ <% end %>
+
+</div>
+
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
 <%= link_to 'Back', tournaments_path %>
 <%= link_to 'Add Teams', tournament_getteams_path(@tournament) %>
