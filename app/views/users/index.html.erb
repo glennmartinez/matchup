@@ -1,0 +1,24 @@
+
+
+<h1> Player Listing </h1>
+
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Avatar</th>
+  </tr>
+
+  <tr>
+  	<td><% @users.each do |user| %> </td>
+  	  	<td><%= user.email %></td>
+
+  	<td><%= user.nickname %></td>
+	<td><%= image_tag user.avatar %></td>
+
+  </tr>
+
+
+<% end %>
+
+</table>
+

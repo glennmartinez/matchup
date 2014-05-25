@@ -16,6 +16,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
 
     @teams = @tournament.teams 
+    @matches = @tournament.matches
 
     respond_to do |format|
       format.html # show.html.erb
@@ -94,12 +95,16 @@ class TournamentsController < ApplicationController
   def addteam
     @team = Team.find(params[:team_id])
     @tournament = Tournament.find(params[:tournament_id])
+    teamname = @team.name
+    duplicateTeam = @tournament.teams.where(id: params[:team_id])
 
-     @tournament.teams << @team 
-     
+    if duplicateTeam.exists?
+      redirect_to @tournament, :flash => { :error => "Team not added, it already exists in the Tournament" }
+    else
+      @tournament.teams << @team 
+      redirect_to @tournament, notice: "Team #{teamname} was added to your Tournament"
 
-    redirect_to @tournament, notice: 'Team was added to your Tournament'
-
+    end
     
   end
 end

@@ -15,6 +15,8 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @team = Team.find(params[:id])
+    
+    @users = @team.users
 
     respond_to do |format|
       format.html # show.html.erb
@@ -89,4 +91,25 @@ class TeamsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def getplayers
+
+    @users = User.all
+    @team = Team.find(params[:team_id])
+    
+  end
+
+  def addplayer
+    @user = User.find(params[:user_id])
+    @team = Team.find(params[:team_id])
+    playername = @user.nickname
+    @team.users << @user 
+     
+
+    redirect_to @team, notice: "Team #{playername} was added to your Tournament"
+
+    
+  end
+
 end

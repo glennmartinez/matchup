@@ -3,7 +3,7 @@ class Tournament < ActiveRecord::Base
 
    attr_protected :id
 
-
+  has_many :matches
   has_many :tournamentships
   has_many :teams, :through => :tournamentships
 

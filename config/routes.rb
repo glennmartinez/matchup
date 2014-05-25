@@ -3,7 +3,9 @@ Matchup::Application.routes.draw do
   
   resources :tournaments
 
-  resources :tournament 
+  resources :tournament do 
+    resources :matches
+  end
 
   resources :tournamentships
   resources :authentications
@@ -15,7 +17,12 @@ Matchup::Application.routes.draw do
 
   get '/tournaments/:tournament_id/addteam/:team_id' => 'tournaments#addteam', :as => :tournament_addteam
   
+  get 'teams/:team_id/getplayers' => 'teams#getplayers', :as => :team_getplayers
+
+  get '/teams/:team_id/addplayer/:user_id' => 'teams#addplayer', :as => :team_addplayer
+
   devise_for :users
+  resources :users
 
   resources :matches do
     resources :teams

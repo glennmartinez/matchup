@@ -1,0 +1,8 @@
+<p>Add Player</p>
+
+<% @users.each do |user| %>
+
+<%= link_to user.nickname, team_addplayer_path(@team, user) %>
+
+
+<% end %>

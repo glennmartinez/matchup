@@ -11,6 +11,9 @@ class Team < ActiveRecord::Base
   has_many :tournamentships
   has_many :tournaments, :through => :tournamentships
 
+  has_many :teamships
+  has_many :users, :through => :teamships
   
 
 end
+

@@ -15,6 +15,19 @@
   <%= @team.status %>
 </p>
 
+<div>
+	<h4>Players </h4>
+ <% @users.each do |user| %>
+ <div>
+ 		<%= user.email %>
+ 		<%= user.nickname %>
+
+ 		<%= image_tag user.avatar %>	
+ </div>
+ <% end %>
+
+</div>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
+<%= link_to 'Add Player', team_getplayers_path(@team) %>

@@ -4,6 +4,8 @@ class MatchesController < ApplicationController
 
   before_filter :get_teams
 
+  before_filter :get_tournament  , :only => [:new, :show, :create]
+
   def index
     @matches = Match.all
 
@@ -27,8 +29,9 @@ class MatchesController < ApplicationController
   # GET /matches/new
   # GET /matches/new.json
   def new
-     @match = Match.new
+      # @match = Match.new
     # @match.teams.build
+    @match = @tournament.matches.build
 
   end
 
@@ -41,8 +44,8 @@ class MatchesController < ApplicationController
   # POST /matches.json
   def create
     # @team = Team.find(params[:team_id])
-    @match = Match.new(params[:match])
-
+    # @match = Match.new(params[:match])
+    @match = @tournament.matches.build(params[:match])
     @team1 = Team.find(params[:match][:hometeamid])
 
     @team2 = Team.find(params[:match][:awayteamid])
@@ -56,7 +59,7 @@ class MatchesController < ApplicationController
     
     respond_to do |format|
       if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
+        format.html { redirect_to [@tournament, @match], notice: 'Match was successfully created.' }
         format.json { render json: @match, status: :created, location: @match }
       else
         format.html { render action: "new" }
@@ -96,5 +99,10 @@ class MatchesController < ApplicationController
   def get_teams
     @teams = Team.all
     
+  end
+
+  def get_tournament
+    @tournament = Tournament.find(params[:tournament_id])
+
   end
 end

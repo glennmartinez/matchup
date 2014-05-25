@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="error"><%= flash[:error] %></p>
 
 <p>
   <b>Name:</b>
@@ -22,6 +22,19 @@
 
 </div>
 
+<div>
+	
+	<h3> Matches</h3>
+	<% @matches.each do |match|%>
+	<%= match.name %>
+	<%= match.date %>
+	<%= match.hometeamname %>
+	<%= match.awayteamname %>
+
+	<% end %>
+</div>
+
 <%= link_to 'Edit', edit_tournament_path(@tournament) %> |
 <%= link_to 'Back', tournaments_path %>
 <%= link_to 'Add Teams', tournament_getteams_path(@tournament) %>
+<%= link_to 'Create a Match', new_tournament_match_path(@tournament) %>
