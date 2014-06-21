@@ -21,6 +21,8 @@ Matchup::Application.routes.draw do
 
   get '/teams/:team_id/addplayer/:user_id' => 'teams#addplayer', :as => :team_addplayer
 
+  get '/tournaments/:tournament_id/generateleague' => 'tournaments#generateleague', :as => :tournament_generateleague
+
   devise_for :users
   resources :users
 
@@ -84,7 +86,7 @@ Matchup::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'teams#index'
+  root :to => 'tournaments#index'
 
   # See how all your routes lay out with "rake routes"
 

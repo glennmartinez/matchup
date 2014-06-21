@@ -1,27 +1,28 @@
-<h1>Listing teams</h1>
+<div class="ui fluid one column grid">
+  <div class="column">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <div class="ui divided list">
 
-<% @teams.each do |team| %>
-  <tr>
-    <td><%= team.name %></td>
-    <td><%= team.description %></td>
-    <td><%= team.status %></td>
-    <td><%= link_to 'Show', team %></td>
-    <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+      <h3>Listing teams</h3>
 
-<br />
 
-<%= link_to 'New Team', new_team_path %>
+      <% @teams.each do |team| %>
+        <div class="item">
+
+          <%= team.name %>
+          <%= team.description %>
+          <%= team.status %>
+          <%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "right floated circular ui mini red button" %>
+          <%= link_to 'Edit', edit_team_path(team) , :class => "right floated circular ui mini blue button" %>
+          <%= link_to 'Show', team, :class => "right floated circular ui mini green button" %>
+
+        </div>
+      <% end %>
+
+    </div>
+      <br />
+
+      <%= link_to 'New Team', new_team_path,:class => 'ui blue submit button' %>
+
+  </div>
+</div>

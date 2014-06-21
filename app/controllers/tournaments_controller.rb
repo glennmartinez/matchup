@@ -107,4 +107,14 @@ class TournamentsController < ApplicationController
     end
     
   end
+
+  def generateleague
+    @tournament = Tournament.find(params[:tournament_id])    
+    @teams = @tournament.teams
+
+    @matches = Tournament.getsomething(@tournament, @teams)
+
+   
+
+  end
 end

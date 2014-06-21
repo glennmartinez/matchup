@@ -1,33 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  
+  <div class="large-12 columns">
 
-<p>
-  <b>Name:</b>
-  <%= @team.name %>
-</p>
 
-<p>
-  <b>Description:</b>
-  <%= @team.description %>
-</p>
+		<p id="notice"><%= notice %></p>
+		<p id="error"><%= flash[:error] %></p>
 
-<p>
-  <b>Status:</b>
-  <%= @team.status %>
-</p>
+		<p>
+		  <b>Name:</b>
+		  <%= @team.name %>
+		</p>
 
-<div>
-	<h4>Players </h4>
- <% @users.each do |user| %>
- <div>
- 		<%= user.email %>
- 		<%= user.nickname %>
+		<p>
+		  <b>Description:</b>
+		  <%= @team.description %>
+		</p>
 
- 		<%= image_tag user.avatar %>	
- </div>
- <% end %>
+		<p>
+		  <b>Status:</b>
+		  <%= @team.status %>
+		</p>
 
+		<div>
+			<h4>Players </h4>
+		 <% @users.each do |user| %>
+		 <div>
+		 		<%= user.email %>
+		 		<%= user.nickname %>
+
+		 		<%= image_tag user.avatar %>	
+		 </div>
+		 <% end %>
+
+		</div>
+
+		<%= link_to 'Edit', edit_team_path(@team) %> |
+		<%= link_to 'Back', teams_path %>
+		<%= link_to 'Add Player', team_getplayers_path(@team) %>
+
+	</div>
 </div>
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
-<%= link_to 'Add Player', team_getplayers_path(@team) %>

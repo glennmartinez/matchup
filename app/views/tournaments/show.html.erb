@@ -1,40 +1,67 @@
-<p id="error"><%= flash[:error] %></p>
+<div class="ui fluid two column grid">
+  
+  	<div class="column">
+		<div class="ui divided list">
+			<div class="item">
+				<p id="error"><%= flash[:error] %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @tournament.name %>
-</p>
+				  <b>Name:</b>
+				  <%= @tournament.name %>
+			</div>
+			<div class="item">
+				  <b>Status:</b>
+				  <%= @tournament.status %>
+			</div>
+		</div>
 
-<p>
-  <b>Status:</b>
-  <%= @tournament.status %>
-</p>
-
-
-<div>
-	<h4>Teams Signed Up</h4>
- <% @teams.each do |team| %>
- <div>
- 		<%= team.name %>
- 		<%= team.description %>	
- </div>
- <% end %>
-
-</div>
-
-<div>
+	</div>
 	
-	<h3> Matches</h3>
-	<% @matches.each do |match|%>
-	<%= match.name %>
-	<%= match.date %>
-	<%= match.hometeamname %>
-	<%= match.awayteamname %>
+	<div class="column">
+		<h3>Teams Signed Up</h3>
+		 <% @teams.each do |team| %>
+		 <div>
+		 		<%= team.name %>
+		 		<%= team.description %>	
+		 </div>
+		 <% end %>
 
-	<% end %>
+	</div>
+
 </div>
 
-<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
-<%= link_to 'Back', tournaments_path %>
-<%= link_to 'Add Teams', tournament_getteams_path(@tournament) %>
-<%= link_to 'Create a Match', new_tournament_match_path(@tournament) %>
+<div class="ui fluid two column grid">
+
+
+	<div class="column">
+		
+		<h3> Upcoming Matches</h3>
+		<table>
+			<tr>
+				<th>Match Name</th>
+				<th>Date</th>
+				<th>HomeTeam</th>
+				<th>AwayTeam</th>
+
+			</tr>
+			<tr>
+			<% @matches.each do |match|%>
+			<td><%= match.name %></td>
+			<td><%= match.date %></td>
+			<td><%= match.hometeamid %> </td>
+			<td><%= match.awayteamid %></td>
+			</tr>
+
+			<% end %>
+		</table>	
+	</div>
+
+
+	<div class="column">
+		<%= link_to 'Edit', edit_tournament_path(@tournament) %> |
+		<%= link_to 'Back', tournaments_path %>
+		<%= link_to 'Add Teams', tournament_getteams_path(@tournament) %>
+		<%= link_to 'Create a Match', new_tournament_match_path(@tournament) %>
+		<%= link_to 'Generate League', tournament_generateleague_path(@tournament) %>
+	</div>
+
+</div>

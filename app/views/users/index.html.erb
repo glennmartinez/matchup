@@ -1,24 +1,26 @@
 
 
-<h1> Player Listing </h1>
+	<h3> Player Listing </h3>
 
-<table>
-  <tr>
-    <th>Player</th>
-    <th>Avatar</th>
-  </tr>
+	<table class="ui three column table segment">
+	  <tr>
+	    <th>Player</th>
+	    <th>Nickname</th>
+	    <th>Avatar</th>
 
-  <tr>
-  	<td><% @users.each do |user| %> </td>
-  	  	<td><%= user.email %></td>
+	  </tr>
 
-  	<td><%= user.nickname %></td>
-	<td><%= image_tag user.avatar %></td>
+	  <tr>
+	  	<td><% @users.each do |user| %> </td>
+	  	  	<td><%= user.email %></td>
 
-  </tr>
+	  	<td><%= user.nickname %></td>
+		<td><%= image_tag user.avatar %></td>
+
+	  </tr>
 
 
-<% end %>
+	<% end %>
 
-</table>
+	</table>
 

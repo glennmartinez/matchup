@@ -104,12 +104,21 @@ class TeamsController < ApplicationController
     @user = User.find(params[:user_id])
     @team = Team.find(params[:team_id])
     playername = @user.nickname
-    @team.users << @user 
-     
 
-    redirect_to @team, notice: "Team #{playername} was added to your Tournament"
+    duplicatePlayer = @team.users.where(id: params[:user_id])
 
-    
+    if duplicatePlayer.exists?
+      redirect_to @team, :flash => { :error => "Cannot add player who is already in the team." }
+
+    else
+      @team.users << @user 
+      redirect_to @team, notice: "Team #{playername} was added to your Tournament"
+
+    end
+
   end
+
+ 
+
 
 end

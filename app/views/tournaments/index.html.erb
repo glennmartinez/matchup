@@ -1,25 +1,27 @@
-<h1>Listing tournaments</h1>
+<div class="ui fluid one column grid">
+    <h3>Tournaments</h3>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <div class="column">
 
-<% @tournaments.each do |tournament| %>
-  <tr>
-    <td><%= tournament.name %></td>
-    <td><%= tournament.status %></td>
-    <td><%= link_to 'Show', tournament %></td>
-    <td><%= link_to 'Edit', edit_tournament_path(tournament) %></td>
-    <td><%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <div class="ui divided list">
 
-<br />
 
-<%= link_to 'New Tournament', new_tournament_path %>
+      <% @tournaments.each do |tournament| %>
+      <div class="item">
+          <%= tournament.name %>
+          <%= tournament.status %>
+          <%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "right floated circular ui mini red button" %>
+          <%= link_to 'Edit', edit_tournament_path(tournament) , :class => "right floated circular ui mini blue button" %>
+          <%= link_to 'Show', tournament , :class => "right floated circular ui mini green button" %>
+   
+      </div>
+      <% end %>
+
+    </div>
+
+    <br />
+
+    <%= link_to 'Create Tournament', new_tournament_path, :class => "button small radius" ,:class => 'ui blue submit button'%>
+
+  </div>
+</div>

@@ -1,4 +1,65 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+
+<div class="ui inverted menu">
+  <a class="active item" href="/dashboard">
+    <i class="home icon"></i> MatchUp.
+  </a>
+  <a class="item">
+    <i class="mail icon"></i> Messages
+  </a>
+  <a class="item">
+    <i class="user icon"></i> Friends
+  </a>
+  <div class="right menu">
+    <% if user_signed_in? %>
+    Signed in as <%= current_user.nickname %> <%= image_tag current_user.avatar %> Not you?
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "item" %>
+    <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => "item" %> or <%= link_to "Sign in", new_user_session_path , :class =>"item" %>
+    <% end %>
+    
+
+  </div>
+</div>
+
+
+  <body>
+<br>
+<div class="ui fluid five item menu">
+  <a href="/dashboard" class="item"><i class="red large dashboard icon"></i>Dashboard</a>
+  <a href="/tournaments" class="item"><i class="green large sitemap icon"></i>Tournaments</a>
+  <a href="/teams" class="item"> <i class="purple large users icon"></i> Teams</a>
+  <a href="/users" class="item"><i class="teal large user icon"></i> Players</a>
+  <a href="/matches" class="item"><i class="large android icon"> </i> vs
+<i class="large apple icon"></i>
+Matches</a>
+
+</div>
+
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+    
+  </body>
+</html>
+
+
+
+<!-- 
+##-------------
+<!DOCTYPE html>
 <html>
 <head>
   <title>Matchup</title>
@@ -20,7 +81,7 @@
   <% else %>
     <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
   <% end %>
-	</div>
+  </div>
 
     </div>
 
@@ -32,9 +93,9 @@
 <div class="row-fluid">
 
 
-	<div class="span12">
+  <div class="span12">
 
-		<div class="hero-unit">
+    <div class="hero-unit">
       <br>
 
         <div class="navbar dashboard">
@@ -61,12 +122,12 @@
           
          </div>
         </div>
-		<%= yield %>
-		</div>
+    <%= yield %>
+    </div>
 
-	</div>
+  </div>
 
 </div>
 
 </body>
-</html>
+</html> -->

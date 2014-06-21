@@ -17,8 +17,11 @@ gem 'devise'
 gem 'omniauth-openid'
 gem 'omniauth-steam'
 
+# gem 'foundation-rails'
 
-
+gem 'less-rails'
+gem 'autoprefixer-rails'
+gem 'semantic-ui-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
