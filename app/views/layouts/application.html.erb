@@ -13,15 +13,18 @@
 
 
 <div class="ui inverted menu">
-  <a class="active item" href="/dashboard">
+  <a class="active item" href="/">
     <i class="home icon"></i> MatchUp.
   </a>
-  <a class="item">
-    <i class="mail icon"></i> Messages
-  </a>
-  <a class="item">
-    <i class="user icon"></i> Friends
-  </a>
+  <% if user_signed_in? %>
+
+    <a class="item">
+      <i class="mail icon"></i> Messages
+    </a>
+    <a class="item">
+      <i class="user icon"></i> Friends
+    </a>
+  <% end %>
   <div class="right menu">
     <% if user_signed_in? %>
     Signed in as <%= current_user.nickname %> <%= image_tag current_user.avatar %> Not you?
@@ -37,18 +40,19 @@
 
   <body>
 <br>
-<div class="ui fluid five item menu">
-  <a href="/dashboard" class="item"><i class="red large dashboard icon"></i>Dashboard</a>
-  <a href="/tournaments" class="item"><i class="green large sitemap icon"></i>Tournaments</a>
-  <a href="/teams" class="item"> <i class="purple large users icon"></i> Teams</a>
-  <a href="/users" class="item"><i class="teal large user icon"></i> Players</a>
-  <a href="/matches" class="item"><i class="large android icon"> </i> vs
-<i class="large apple icon"></i>
-Matches</a>
+  <% if user_signed_in? %>
 
-</div>
+    <div class="ui fluid five item menu">
+      <a href="/dashboard" class="item"><i class="red large dashboard icon"></i>Dashboard</a>
+      <a href="/tournaments" class="item"><i class="green large sitemap icon"></i>Tournaments</a>
+      <a href="/teams" class="item"> <i class="purple large users icon"></i> Teams</a>
+      <a href="/users" class="item"><i class="teal large user icon"></i> Players</a>
+      <a href="/matches" class="item"><i class="large android icon"> </i> vs
+    <i class="large apple icon"></i>
+    Matches</a>
 
-
+    </div>
+  <% end %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
     

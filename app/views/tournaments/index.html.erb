@@ -1,7 +1,7 @@
 <div class="ui fluid one column grid">
-    <h3>Tournaments</h3>
 
   <div class="column">
+    <h3>Tournaments</h3>
 
     <div class="ui divided list">
 
@@ -11,7 +11,7 @@
           <%= tournament.name %>
           <%= tournament.status %>
           <%= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "right floated circular ui mini red button" %>
-          <%= link_to 'Edit', edit_tournament_path(tournament) , :class => "right floated circular ui mini blue button" %>
+          <%= link_to 'Edit', edit_tournament_path(tournament), :class => "right floated circular ui mini blue button" %>
           <%= link_to 'Show', tournament , :class => "right floated circular ui mini green button" %>
    
       </div>
@@ -21,7 +21,8 @@
 
     <br />
 
-    <%= link_to 'Create Tournament', new_tournament_path, :class => "button small radius" ,:class => 'ui blue submit button'%>
+    <%= link_to 'Create Tournament', new_tournament_path ,:class => 'ui blue submit button'%>
 
   </div>
 </div>
+

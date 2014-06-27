@@ -1,0 +1,41 @@
+<div class="ui fluid two column grid">
+  
+  	<div class="column">
+		<div class="ui divided list">
+			<div class="item">
+				<p id="error"><%= flash[:error] %></p>
+
+				  <b>Name:</b>
+				  <%= @user.nickname %>
+			</div>
+			<div class="item">
+				  <b>Avatar:</b>
+				  <%= @user.avatar%>
+			</div>
+				<% if current_user.has_role? :admin  %>
+					<%= link_to 'Edit', edit_user_path(@user) %> |
+				<% end %>
+		</div>
+
+	</div>
+	
+	<div class="column">
+	
+		<div class="ui divided list">
+			<div class="item">
+				<h5>User Roles </h5>
+
+				<p id="error"><%= flash[:error] %></p>
+
+				  <b>Name:</b>
+				  <% @user.roles.each do |r| %>
+				  	<%= r.name %>
+
+				  <% end %>
+			</div>
+	
+		</div>		
+
+	</div>
+
+</div>

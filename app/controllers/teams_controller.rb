@@ -17,6 +17,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     
     @users = @team.users
+    @tournaments = @team.tournaments
 
     respond_to do |format|
       format.html # show.html.erb

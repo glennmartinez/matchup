@@ -1,9 +1,9 @@
-<div class="ui fluid one column grid">
+<div class="ui fluid two column grid">
   <div class="column">
 
     <div class="ui divided list">
 
-      <h3>Listing teams</h3>
+      <h5>Listing teams</h5>
 
 
       <% @teams.each do |team| %>
@@ -22,7 +22,35 @@
     </div>
       <br />
 
-      <%= link_to 'New Team', new_team_path,:class => 'ui blue submit button' %>
+      <%= link_to 'Create Team', new_team_path,:class => 'ui blue submit button' %>
+
+  </div>
+
+  <div class="column">
+    
+    <div class="ui divided list">
+
+      <h5>Top Teams</h5>
+
+
+      <% @teams.each do |team| %>
+        <div class="item">
+
+          <%= team.name %>
+          <%= team.description %>
+          <%= team.status %>
+          <%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "right floated circular ui mini red button" %>
+          <%= link_to 'Edit', edit_team_path(team) , :class => "right floated circular ui mini blue button" %>
+          <%= link_to 'Show', team, :class => "right floated circular ui mini green button" %>
+
+        </div>
+      <% end %>
+
+    </div>
+      <br />
+
+
+  </div>
 
   </div>
 </div>

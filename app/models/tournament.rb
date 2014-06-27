@@ -1,6 +1,9 @@
 class Tournament < ActiveRecord::Base
   attr_accessible :name, :status
 
+  include Authority::Abilities
+
+
    attr_protected :id
 
   has_many :matches

@@ -1,26 +1,68 @@
+<div class="ui fluid two column grid">
+
+	<div class="column">
+		<h5> Player Listing: </h5>
+
+		<table class="ui compact table segment">
+		 <thead>
+		  <tr>
+		    <th>Player</th>
+		    <th>Nickname</th>
+		    <th>Avatar</th>
+		    <th>Actions</th>
+
+		  </tr>
+		</thead>
+		
+		<tbody> 
+		  <tr>
+		  	<% @users.each do |user| %>
+		  	<td><%= user.email %></td>
+
+		  	<td><%= user.nickname %></td>
+			<td><%= image_tag user.avatar %></td>
+	      	<td><%= link_to 'Show', user , :class => "floated circular ui tiny green button" %> </td>
+
+		  </tr>
 
 
-	<h3> Player Listing </h3>
+		<% end %>
+		</tbody>
+		</table>
 
-	<table class="ui three column table segment">
-	  <tr>
-	    <th>Player</th>
-	    <th>Nickname</th>
-	    <th>Avatar</th>
+	</div>
 
-	  </tr>
+	<div class="column">
+			<h5> Player Rating Ladder: </h5>
 
-	  <tr>
-	  	<td><% @users.each do |user| %> </td>
-	  	  	<td><%= user.email %></td>
+		<table class="ui compact table segment">
+		 <thead>
+		  <tr>
+		    <th>Player</th>
+		    <th>Nickname</th>
+		    <th>Avatar</th>
+		    <th>Actions</th>
 
-	  	<td><%= user.nickname %></td>
-		<td><%= image_tag user.avatar %></td>
+		  </tr>
+		</thead>
+		
+		<tbody> 
+		  <tr>
+		  	<% @users.each do |user| %>
+		  	<td><%= user.email %></td>
 
-	  </tr>
+		  	<td><%= user.nickname %></td>
+			<td><%= image_tag user.avatar %></td>
+	      	<td><%= link_to 'Show', user , :class => "floated circular ui tiny green button" %> </td>
+
+		  </tr>
 
 
-	<% end %>
+		<% end %>
+		</tbody>
+		</table>
 
-	</table>
+	</div>
 
+	</div>
+</div>

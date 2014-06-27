@@ -1,6 +1,12 @@
 class TournamentsController < ApplicationController
   # GET /tournaments
   # GET /tournaments.json
+
+  authorize_actions_for Tournament, :except =>  [:index, :show]
+  authority_actions :getteams => 'read'
+  authority_actions :addteam => 'create'
+
+
   def index
     @tournaments = Tournament.all
 
@@ -39,6 +45,8 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1/edit
   def edit
     @tournament = Tournament.find(params[:id])
+        authorize_action_for(@tournament)        # Check to see if you're allowed to edit this llama.
+
   end
 
   # POST /tournaments
@@ -89,6 +97,7 @@ class TournamentsController < ApplicationController
 
     @teams = Team.all
     @tournament = Tournament.find(params[:tournament_id])
+    authorize_action_for(@tournament)        
     
   end
 

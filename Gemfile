@@ -16,7 +16,8 @@ gem 'jquery_datepicker'
 gem 'devise' 
 gem 'omniauth-openid'
 gem 'omniauth-steam'
-
+gem 'authority'
+gem 'rolify'
 # gem 'foundation-rails'
 
 gem 'less-rails'

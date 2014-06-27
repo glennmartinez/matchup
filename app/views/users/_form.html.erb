@@ -1,0 +1,36 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname %>
+  </div>
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.text_field :avatar %>
+
+  </div>
+  <div>
+
+
+  <fieldset>
+    <legend>Global roles</legend>
+
+   <%= f.select :roles, Role.all.map{ |l| [l.name, l.id, {:name => l.name.downcase}] } %>
+
+
+  </div>
+   <div class="actions">
+    <%= f.submit :class => 'ui blue submit button' %>
+  </div>
+<% end %>
