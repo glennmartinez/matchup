@@ -87,6 +87,7 @@ GEM
       multi_json
       omniauth-openid
     orm_adapter (0.4.0)
+    pg (0.17.1)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -108,6 +109,11 @@ GEM
       railties (= 3.2.9)
     rails3-jquery-autocomplete (1.0.11)
       rails (~> 3.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (3.2.9)
       actionpack (= 3.2.9)
       activesupport (= 3.2.9)
@@ -134,7 +140,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.7)
+    sqlite3 (1.3.9)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -166,8 +172,10 @@ DEPENDENCIES
   nested_form
   omniauth-openid
   omniauth-steam
+  pg
   rails (= 3.2.9)
   rails3-jquery-autocomplete
+  rails_12factor
   rolify
   sass-rails (~> 3.2.3)
   semantic-ui-rails
