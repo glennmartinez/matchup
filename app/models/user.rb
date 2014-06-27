@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable
 
   has_many :authentications
-
+  has_many :roles 
   has_many :teamships
   has_many :teams , :through => :teamships
   accepts_nested_attributes_for :roles
@@ -29,3 +29,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nickname ,:avatar , :steamid , :roles, :authentications
   # attr_accessible :title, :body
 end
+
+
