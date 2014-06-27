@@ -20,8 +20,7 @@
 		<h5>Teams Signed Up</h5>
 		 <% @teams.each do |team| %>
 		 <div>
-		 		<%= team.name %>
-		 		<%= team.description %>	
+		 		<%= link_to team.name, team_path(team) %>
 		 </div>
 		 <% end %>
 
