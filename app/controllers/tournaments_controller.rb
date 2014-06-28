@@ -2,7 +2,7 @@ class TournamentsController < ApplicationController
   # GET /tournaments
   # GET /tournaments.json
 
-  authorize_actions_for Tournament, :except =>  [:index, :show]
+  authorize_actions_for Tournament, :except =>  [:index, :show, :generateleague]
   authority_actions :getteams => 'read'
   authority_actions :addteam => 'create'
 
