@@ -26,7 +26,7 @@
   <% end %>
   <div class="right menu">
     <% if user_signed_in? %>
-    Signed in as <%= current_user.nickname %> <%= image_tag current_user.avatar %> Not you?
+    Signed in as <%= current_user.nickname %>  Not you?
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "item" %>
     <% else %>
     <%= link_to "Sign up", new_user_registration_path, :class => "item" %> or <%= link_to "Sign in", new_user_session_path , :class =>"item" %>
