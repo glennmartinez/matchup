@@ -12,9 +12,13 @@
 				  <b>Avatar:</b>
 				  <%= @user.avatar%>
 			</div>
-				<% if current_user.has_role? :admin  %>
-					<%= link_to 'Edit', edit_user_path(@user) %> |
-				<% end %>
+			<div class="item">
+				  <b>Roles:</b>
+				  <%= @user.admin%>
+			</div>
+					<% if current_user.admin? %>
+					<%= link_to 'Edit', edit_user_path(@user) %> 
+					<% end %>
 		</div>
 
 	</div>
@@ -28,10 +32,7 @@
 				<p id="error"><%= flash[:error] %></p>
 
 				  <b>Name:</b>
-				  <% @user.roles.each do |r| %>
-				  	<%= r.name %>
-
-				  <% end %>
+				 
 			</div>
 	
 		</div>		

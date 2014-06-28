@@ -16,18 +16,13 @@ end
 
 def edit
 	@user = User.find(params[:id])
-	authorize_action_for(@user) 
+
 
 end
 
 def update
 	@user = User.find(params[:id])
 
-	@role = Role.find(params[:user][:roles])
-##need to add function to remove duplicates
-	@user.roles << @role 
-
-	params[:user].delete :roles
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

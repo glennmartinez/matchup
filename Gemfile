@@ -6,7 +6,7 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-# gem 'sqlite3'
+gem 'sqlite3', group: :development
 gem 'therubyracer'
 gem 'execjs'
 gem 'rails3-jquery-autocomplete'
@@ -18,7 +18,7 @@ gem 'devise'
 gem 'omniauth-openid'
 gem 'omniauth-steam'
 gem 'authority'
-gem 'rolify'
+# gem 'rolify'
 # gem 'foundation-rails'
 
 gem 'less-rails'

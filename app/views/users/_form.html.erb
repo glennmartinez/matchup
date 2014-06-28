@@ -23,10 +23,6 @@
   <div>
 
 
-  <fieldset>
-    <legend>Global roles</legend>
-
-   <%= f.select :roles, Role.all.map{ |l| [l.name, l.id, {:name => l.name.downcase}] } %>
 
 
   </div>

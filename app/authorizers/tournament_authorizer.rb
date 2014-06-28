@@ -19,8 +19,8 @@ class TournamentAuthorizer < ApplicationAuthorizer
 
   def self.updatable_by?(user)
 
-  	user.has_role? :adminwewe
-  	
+     user.has_role? :adminwewe
+
   end
 
   def self.getteams(user)
