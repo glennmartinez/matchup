@@ -55,5 +55,47 @@ def self.createMatches(tournament,teamList)
     end
 
 end
+
+def self.getCompletedMatches(tournament)
+
+  leagueTable = Array.new
+  matches = tournament.matches
  
+  teams = tournament.teams
+
+  teams.each do |team|
+    puts team.name
+    wins = 0
+    loss = 0
+##to be refactored, use match.result.nil? check first to make sure match has been played
+    matches.each do |match|
+      if [match.hometeamid, match.awayteamid].include?  team.id
+
+        if match.result == team.id
+          wins += 1
+          # puts "Winning Team" + " " + team.name
+        elsif match.result.nil?
+
+        else 
+          loss += 1
+        end
+
+      end
+
+    end
+
+
+    leagueTable << {"teamname" => team.name, "wins" => wins, "losses" => loss}
+
+  end
+  
+
+   leagueTable.each do |entry|
+    puts entry
+    end
+
+    return leagueTable
+
+end
+
 end

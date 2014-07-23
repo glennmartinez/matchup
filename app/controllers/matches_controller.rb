@@ -20,6 +20,8 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
 
+    # @winner = Team.find(@match.result)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @match }
@@ -71,11 +73,14 @@ class MatchesController < ApplicationController
   # PUT /matches/1
   # PUT /matches/1.json
   def update
+    # @match = @tournament.matches.build(params[:match])
+
     @match = Match.find(params[:id])
+    @tournament = @match.tournament
 
     respond_to do |format|
       if @match.update_attributes(params[:match])
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        format.html { redirect_to [@tournament, @match], notice: 'Match was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

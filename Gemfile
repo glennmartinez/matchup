@@ -6,7 +6,7 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-# gem 'sqlite3', group: :development
+gem 'sqlite3', group: :development
 gem 'therubyracer'
 gem 'execjs'
 gem 'rails3-jquery-autocomplete'

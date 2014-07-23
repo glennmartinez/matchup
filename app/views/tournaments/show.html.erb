@@ -1,12 +1,11 @@
-<div class="ui fluid two column grid">
+<div class="ui fluid three column grid">
   
   	<div class="column">
 		<div class="ui divided list">
 			<div class="item">
 				<p id="error"><%= flash[:error] %></p>
 
-				  <b>Name:</b>
-				  <%= @tournament.name %>
+				  <h5><%= @tournament.name %></h5>
 			</div>
 			<div class="item">
 				  <b>Status:</b>
@@ -18,13 +17,58 @@
 	
 	<div class="column">
 		<h5>Teams Signed Up</h5>
-		 <% @teams.each do |team| %>
-		 <div>
-		 		<%= link_to team.name, team_path(team) %>
-		 </div>
-		 <% end %>
+		<table class="ui compact table segment">
+		 <thead>
+		  <tr>
+		    <th>Team</th>
+		  </tr>
+		</thead>
+		
+		<tbody> 
+		  <tr>
+		  	<% @teams.each do |team| %>
+		  	<td><%= link_to team.name, team_path(team) %></td>
+
+		  </tr>
+
+
+		<% end %>
+		</tbody>
+		</table>
 
 	</div>
+
+	<div class="column">
+		<h5>LeaderBoard</h5>
+		
+		 <table class="ui compact table segment">
+		 <thead>
+		  <tr>
+		    <th>Team</th>
+		    <th>Wins</th>
+		    <th>Losses</th>
+
+		  </tr>
+		</thead>
+		
+		<tbody> 
+		  <tr>
+		  	<% @completedMatches.each do |team| %>
+		  	<td><%= team["teamname"] %></td>
+
+		  	<td><%= team["wins"] %></td>
+	      	<td><%= team["losses"] %> </td>
+
+		  </tr>
+
+
+		<% end %>
+		</tbody>
+		</table>
+
+	</div>	
+
+	
 
 </div>
 
@@ -34,20 +78,18 @@
 	<div class="column">
 		
 		<h5> Upcoming Matches</h5>
-		<table>
+		<table class="ui compact table segment">
 			<tr>
 				<th>Match Name</th>
 				<th>Date</th>
-				<th>HomeTeam</th>
-				<th>AwayTeam</th>
+				<th>Winner</th>
 
 			</tr>
 			<tr>
 			<% @matches.each do |match|%>
-			<td><%= match.name %></td>
+			<td><%= link_to match.name, tournament_match_path(@tournament, match) %></td>
 			<td><%= match.date %></td>
-			<td><%= match.hometeamid %> </td>
-			<td><%= match.awayteamid %></td>
+		
 			</tr>
 
 			<% end %>

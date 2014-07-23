@@ -30,6 +30,12 @@
       <%= f.hidden_field :awayteamid %>
   </div>
 
+    <div class="field">
+        <%= f.label "Winner" %><br />
+
+  <%= f.collection_select :result, @match.teams, :id, :name, include_blank: true %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

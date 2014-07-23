@@ -24,6 +24,8 @@ class TournamentsController < ApplicationController
     @teams = @tournament.teams 
     @matches = @tournament.matches
 
+    @completedMatches = Tournament.getCompletedMatches(@tournament)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tournament }
